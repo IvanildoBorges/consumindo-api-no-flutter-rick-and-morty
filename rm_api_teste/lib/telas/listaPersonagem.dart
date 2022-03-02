@@ -16,7 +16,7 @@ class PersonagemListaState extends State<ListaPersonagem>{
   List<Personagem> personagensLista = <Personagem>[];
 
   void getPersonagensfromAPI() async{
-    PersonagemApi.getPersonagem('character').then((response){
+    PersonagemApi.getPersonagem().then((response){
       setState(() {
         Iterable lista = json.decode(response.body)['results'];
         personagensLista = lista.map((model) => Personagem.fromJson(model)).toList();
@@ -76,7 +76,7 @@ class PersonagemListaState extends State<ListaPersonagem>{
         appBar: AppBar(
           title: Text( "Personagens Rick & Morty",
             style: TextStyle(
-              color: Color(0xffffffff),
+              color: Color(0xff54ffeb),
             ),
           ),
           centerTitle: true,

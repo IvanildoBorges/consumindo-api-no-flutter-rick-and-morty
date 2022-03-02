@@ -1,18 +1,15 @@
 import 'package:http/http.dart' as http;
 
 class PersonagemApi{
-  static Future getPersonagem(dynamic valor){
-    Uri url = Uri.parse('https://www.rickandmortyapi.com/api/');
+  static Future getPersonagem(){
+    Uri url = Uri.parse('https://www.rickandmortyapi.com/api/character');
 
-    if (valor == "character") {
-      url = Uri.parse('https://www.rickandmortyapi.com/api/$valor');
-    } else{
-      url = Uri.parse('https://www.rickandmortyapi.com/api/episode/$valor');
-    }
+    return http.get(url, headers: {"Accept": "application/json"});
+  }
 
-    return http.get(
-        url,
-        headers: {"Accept": "application/json"}
-    );
+  static Future getEpisode(int valor) {
+    Uri url = Uri.parse('https://www.rickandmortyapi.com/api/episode/${valor}');
+
+    return http.get(url, headers: {"Accept": "application/json"});
   }
 }
