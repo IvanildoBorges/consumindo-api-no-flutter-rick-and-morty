@@ -61,6 +61,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+```
 
 ## 📱 Telas
 ### Tela Lista Personagens
